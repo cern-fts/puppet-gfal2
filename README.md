@@ -30,9 +30,9 @@ include gfal2
 
 ```
 
-and by default gfal2 and the srm, http , gsiftp plugin will be installed and configured.
+and by default gfal2 and the srm, http , gsiftp plugins will be installed and configured.
 
-Check the test/init.pp manifest to enable other plugins
+Check the test/init.pp manifest to see how to enable other plugins
 
-
+detailed instructions on how to configure the different plugins will follow
 
