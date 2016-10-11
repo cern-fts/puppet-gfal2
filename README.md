@@ -1,4 +1,4 @@
-#gfal2 puppet module
+###gfal2 puppet module
 #### Table of Contents
 
 1. [Description](#description)
@@ -6,13 +6,13 @@
 3. [Usage](#usage)
 
 
-##Description
+###Description
 
 
 The gfal2 puppet module enables the installation and configuration of the gfal2 library + its plugins and the gfal2-util client.
 
 
-##Installation
+###Installation
 
 
 The puppet-gfal2 module can be installed from puppetforge via
@@ -21,7 +21,7 @@ The puppet-gfal2 module can be installed from puppetforge via
 puppet module install lcgdm-gfal2
 ```
 
-##Usage
+###Usage
 
 Just including the module in your manifest is enough
 
