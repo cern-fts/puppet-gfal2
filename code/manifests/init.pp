@@ -15,39 +15,39 @@ class gfal2 (
   
   
   if $enable_http {
-    include gfal2::plugins::http
+    include gfal2::plugins::http::config
   }
 
   if $enable_gsiftp {
-    include gfal2::plugins::gsiftp
+    include gfal2::plugins::gsiftp::config
   }
   
   if $enable_srm {
-    include gfal2::plugins::srm
+    include gfal2::plugins::srm::config
   }
 
   if $enable_xrootd {
-    include gfal2::plugins::xrootd
+    include gfal2::plugins::xrootd::config
   }
 
   if $enable_rfio {
-    include gfal2::plugins::rfio
+    include gfal2::plugins::rfio::config
   }
   
   if $enable_dcap {
-    include gfal2::plugins::dcap
+    include gfal2::plugins::dcap::config
   } 
 
   if $enable_file {
-    include gfal2::plugins::file
+    include gfal2::plugins::file::config
   }
 
   if $enable_lfc {
-    include gfal2::plugins::lfc
+    include gfal2::plugins::lfc::config
   }
 
   if $enable_lfc {
-    include gfal2::plugins::mock
+    include gfal2::plugins::mock::config
   }
   
 }

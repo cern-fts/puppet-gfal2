@@ -8,7 +8,16 @@ class gfal2::params {
   $enable_file = hiera('gfal2::params::enable_file', false)
   $enable_lfc = hiera('gfal2::params::enable_lfc', false)
   $enable_mock = hiera('gfal2::params::enable_mock', false)
+  
+  #gfal2_core params
+  $namespace_timeout =  hiera('gfal2::params::namespace_timout', 300) 
+  $checksum_timeout = hiera('gfal2::params::checksum_timout', 1800)
 
+  #bdii params
+  $bdii_enabled =  hiera('gfal2::params::bdii_enabled', true)
+  $lcg_gfal_infoys = hiera('gfal2::params::lcg_gfal_infoys', 'lcg-bdii.cern.ch:2170')
+  $bdii_cache_file =  hiera('gfal2::params::bdii_cach_file', '/var/lib/fts3/bdii_cache.xml') 
+ 
 }
 
 
