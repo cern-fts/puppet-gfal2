@@ -1,0 +1,14 @@
+# basic configuration for the gfal 2 BDII related options ( information system for wlcg )
+
+[BDII]
+
+# enable or disable bdii query system ( default : enabled )
+ENABLED=<%= @bdii_enabled %>
+
+#  default BDII server to contact
+LCG_GFAL_INFOSYS=<%= @lcg_gfal_infoys %>
+
+# Cache file for the BDII system
+# Compatible with FTS3 cache format
+# This file must be updated externally
+CACHE_FILE<%= @bdii_cache_file %>

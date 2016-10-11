@@ -1,0 +1,14 @@
+# basic configuration for the gfal 2 lfc plugin
+
+
+[LFC PLUGIN]
+
+# Logical File Catalog hostname
+# default is the central one, at cern
+LFC_HOST=<%= @lfc_host %>
+# connexion timeout in second
+LFC_CONNTIMEOUT=<%= @lfc_conntimeout %>
+# maximum number of try for opening a connexion
+LFC_CONRETRY=<%= @lfc_connretry %>
+# 
+LFC_CONRETRYINT=<%= @lfc_connretry_int %>

@@ -1,0 +1,12 @@
+# Core configuration of GFAL 2.0
+
+
+[CORE]
+
+# Namespace operations timeout in seconds.
+# Other protocols may override this if set (i.e. GRIDFTP PLUGIN:OPERATION_TIMEOUT)
+NAMESPACE_TIMEOUT=<%= @namespace_timeout %>
+
+# Checksum timeout in seconds.
+# Other protocol specific may override this if set (i.e. GRIDFTP PLUGIN:CHECKSUM_TIMEOUT)
+CHECKSUM_TIMEOUT=<%= @checksum_timeout %>

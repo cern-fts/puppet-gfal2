@@ -1,0 +1,55 @@
+#
+# basic configuration for the gfal 2 griftp plugin
+
+
+[GRIDFTP PLUGIN]
+# enable or disable gridFTPv2 support
+GRIDFTP_V2=<%= @gridftp_v2 %>
+
+# enable or disable session re-use support
+# warning:
+#   disabling this feature can slow-down a lot the performance
+#   enabling this feature can cause trouble with Castor
+SESSION_REUSE=<%= @session_reuse %>
+
+# default number of streams used for file transfers
+# 0 means in-order-stream mode
+RD_NB_STREAM=<%= @rb_nb_stream %>
+
+# default checksum algorithm type used for transfer content verification
+COPY_CHECKSUM_TYPE=<%= @copy_checksum_type %>
+
+# enable or disable the encryption for the data channel
+DCAU=<%= @dcau %>
+
+# enable or disable the ipv6 support
+IPV6=<%= @ipv6 %>
+
+# define the maximum time in s
+# for a gsiftp checksum request
+# Overrides CORE:CHECKSUM_TIMEOUT
+CHECKSUM_CALC_TIMEOUT=<%= @checksum_calc_timeout %>
+
+# maximum time between two performance markers
+# disable if equal to 0
+PERF_MARKER_TIMEOUT=<%= @perf_marker_timeout %>
+
+# timeout for namespace operations
+# Overrides CORE:NAMESPACE_TIMEOUT
+OPERATION_TIMEOUT=<%= @operation_timeout %>
+
+## enable or disable the delay passive option of gridftpv2
+## this option need to be enabled to support the gridftp redirection features
+DELAY_PASSV=<%= @delay_passv %>
+
+# Enable UDT transfers
+# Not all servers implement this, so gfal2 will fallback to a normal transfer if
+# not supported
+ENABLE_UDT=<%= @udt %>
+
+# Enable the PASV plugin
+# Required to trigger events with the final destination IP and port
+ENABLE_PASV_PLUGIN=<%= @pasv_plugin %>
+
+# Block size for third party copies
+BLOCK_SIZE = <%= @block_size %>

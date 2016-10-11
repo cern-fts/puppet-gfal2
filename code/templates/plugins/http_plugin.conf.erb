@@ -1,0 +1,29 @@
+# configuration file for http plugin
+[HTTP PLUGIN]
+ENABLE_REMOTE_COPY=<%= @enable_remote_copy %>
+
+# Enable or disable the SSL CA check
+INSECURE=<%= @insecure %>
+
+# Force Davix log level
+LOG_LEVEL=<%= @log_level %>
+
+# Use HTTP Keep-Alive
+KEEP_ALIVE=<%= @keep_alive %>
+
+
+# AWS S3 related options
+[S3]
+
+# AWS Secret key
+SECRET_KEY=<%= @s3_secret_key %>
+
+## AWS Access key
+ACCESS_KEY=<%= @s3_access_key %>
+
+# AWS Short lived token
+TOKEN=<%= @s3_token %>
+
+# AWS Region
+REGION=<%= @s3_region %>
+
