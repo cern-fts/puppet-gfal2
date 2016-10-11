@@ -9,7 +9,7 @@ class gfal2::plugins::rfio::config(
       owner   => "root",
       group   => "root",
       mode    => '0644',
-      content => template('gfal2/rfio_plugin.conf.erb'),
+      content => template('gfal2/plugins/rfio_plugin.conf.erb'),
       require => Package['gfal2-plugin-rfio'],
   }
 }

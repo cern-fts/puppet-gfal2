@@ -9,7 +9,7 @@ class gfal2::plugins::mock::config(
       owner   => "root",
       group   => "root",
       mode    => '0644',
-      content => template('gfal2/mock_plugin.conf.erb'),
+      content => template('gfal2/plugins/mock_plugin.conf.erb'),
       require => Package['gfal2-plugin-mock'],
   }
 }

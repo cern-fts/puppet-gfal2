@@ -10,4 +10,14 @@
 # http://docs.puppetlabs.com/guides/tests_smoke.html
 #
 
-include gfal2
+class{'gfal2':
+  enable_http   => true,
+  enable_gsiftp => true,
+  enable_srm    => true,
+  enable_xrootd => true,
+  enable_rfio   => true,
+  enable_dcap   => true,
+  enable_file   => true,
+  enable_lfc    => true,
+  enable_mock   => true,
+}

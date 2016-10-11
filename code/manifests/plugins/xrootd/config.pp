@@ -9,7 +9,7 @@ class gfal2::plugins::xrootd::config(
       owner   => "root",
       group   => "root",
       mode    => '0644',
-      content => template('gfal2/xrootd_plugin.conf.erb'),
+      content => template('gfal2/plugins/xrootd_plugin.conf.erb'),
       require => Package['gfal2-plugin-xrootd'],
   }
 }

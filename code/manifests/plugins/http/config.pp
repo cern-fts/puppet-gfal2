@@ -9,7 +9,7 @@ class gfal2::plugins::http::config(
       owner   => "root",
       group   => "root",
       mode    => '0644',
-      content => template('gfal2/http_plugin.conf.erb'),
+      content => template('gfal2/plugins/http_plugin.conf.erb'),
       require => Package['gfal2-plugin-http'],
   }
 }
