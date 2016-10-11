@@ -18,7 +18,7 @@ The gfal2 puppet module enables the installation and configuration of the gfal2 
 The puppet-gfal2 module can be installed from puppetforge via
 
 ```
-puppet module install lcgdm-gfal2
+puppet module install dmc-gfal2
 ```
 
 the module doesn't configure the repositories for the installation.
