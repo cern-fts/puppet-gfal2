@@ -21,6 +21,9 @@ The puppet-gfal2 module can be installed from puppetforge via
 puppet module install lcgdm-gfal2
 ```
 
+the module doesn't configure the repositories for the installation.
+Gfal2 in RedHat systems is available in EPEL.
+
 ## Usage
 
 Just including the module in your manifest is enough
