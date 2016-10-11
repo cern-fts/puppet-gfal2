@@ -19,7 +19,7 @@ class gfal2::params {
   $lcg_gfal_infoys =  hiera('gfal2::params::lcg_gfal_infoys', 'lcg-bdii.cern.ch:2170')
   $bdii_cache_file =  hiera('gfal2::params::bdii_cach_file', '/var/lib/fts3/bdii_cache.xml') 
   
-  $install_gfal2_utils = hiera('gfal2::params::install_gfal2_utils', false) 
+  $install_gfal2_util = hiera('gfal2::params::install_gfal2_util', false) 
 }
 
 

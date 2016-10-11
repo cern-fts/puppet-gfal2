@@ -20,4 +20,5 @@ class{'gfal2':
   enable_file   => true,
   enable_lfc    => true,
   enable_mock   => true,
+  install_gfal2_util => true,
 }

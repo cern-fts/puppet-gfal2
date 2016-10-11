@@ -30,7 +30,7 @@ class gfal2::core(
       require => Package['gfal2'],
   }
 
-  if $install_gfal2_utils {
+  if $install_gfal2_util{
       package{'gfal2-util':
         ensure => 'present',
     }
