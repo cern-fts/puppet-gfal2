@@ -2,7 +2,7 @@ class gfal2::plugins::rfio::config(
 ) inherits gfal2::plugins::rfio::params {
   #install gfal2-plugin-rfio
   package{'gfal2-plugin-rfio':
-    ensure => 'present',
+    ensure => $gfal2::params::version,
   }
   #conf
   file{'/etc/gfal2.d/rfio_plugin.conf':

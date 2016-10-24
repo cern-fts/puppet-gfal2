@@ -20,6 +20,9 @@ class gfal2::params {
   $bdii_cache_file =  hiera('gfal2::params::bdii_cach_file', '/var/lib/fts3/bdii_cache.xml') 
   
   $install_gfal2_util = hiera('gfal2::params::install_gfal2_util', false) 
+  
+  #version of gfal2 to install, default is present as the one currectly avaulble on the repo
+  $version         = hiera('gfal2::params::version', 'present')
 }
 
 

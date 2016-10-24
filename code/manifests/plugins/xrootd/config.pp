@@ -2,7 +2,7 @@ class gfal2::plugins::xrootd::config(
 ) inherits gfal2::plugins::xrootd::params {
   #install gfal2-plugin-xrootd
   package{'gfal2-plugin-xrootd':
-    ensure => 'present',
+    ensure => $gfal2::params::version,
   }
   #conf
   file{'/etc/gfal2.d/xrootd_plugin.conf':

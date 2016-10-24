@@ -2,7 +2,7 @@ class gfal2::plugins::mock::config(
 ) inherits gfal2::plugins::mock::params {
   #install gfal2-plugin-mock
   package{'gfal2-plugin-mock':
-    ensure => 'present',
+    ensure => $gfal2::params::version,
   }
   #conf
   file{'/etc/gfal2.d/mock_plugin.conf':

@@ -2,7 +2,7 @@ class gfal2::core(
 ) inherits gfal2::params {
   #install gfal2-core
   package{'gfal2':
-    ensure => 'present',
+    ensure => $gfal2::params::version,
   }
   file{'/etc/gfal2.d':
       ensure  => 'directory',
