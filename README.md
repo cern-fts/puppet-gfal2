@@ -1,41 +1,46 @@
-# gfal2 puppet module
-#### Table of Contents
+<table>
+<tr>
+  <th>Module or Hostgroup</th>
+  <th>Master Branch</th>
+  <th>QA Branch</th>
+  <th>Modulesync Branch</th>
+  <th>Coverage QA Branch</th>
+</tr>
+<tr>
+ <td><a href='https://gitlab.cern.ch/ai/it-puppet-module-gfal2'>it-puppet-module-gfal2</a></td>
+  <td><a href='https://gitlab.cern.ch/ai/it-puppet-module-gfal2/commits/master'>
+     <img src='https://gitlab.cern.ch/ai/it-puppet-module-gfal2/badges/master/build.svg'></a></td>
+  <td><a href='https://gitlab.cern.ch/ai/it-puppet-module-gfal2/commits/qa'>
+     <img src='https://gitlab.cern.ch/ai/it-puppet-module-gfal2/badges/qa/build.svg'></a></td>
+  <td><a href='https://gitlab.cern.ch/ai/it-puppet-module-gfal2/commits/modulesync'>
+     <img src='https://gitlab.cern.ch/ai/it-puppet-module-gfal2/badges/modulesync/build.svg'></a></td>
+   <td>
+  <a href="https://gitlab.cern.ch/ai/it-puppet-module-gfal2/commits/qa">
+  <img alt="coverage report" src="https://gitlab.cern.ch/ai/it-puppet-module-gfal2/badges/qa/coverage.svg" /></a>
+  </td>
+</tr>
+</table>
 
-1. [Description](#description)
-2. [Installation](#installation)
-3. [Usage](#usage)
+Table of all modules/hostgroups: [BUILDRESULTS.md](https://gitlab.cern.ch/ai/it-puppet-modulesync-configs/blob/master/BUILDRESULTS.md)
+
+* [code/ -  module directory](code/)
+* [code/README.md - module documentation](code/README.md)
+* [code/metadata.json - module metadata](code/metadata.json)
+* [code/manifests - module manifests directory](code/manifests)
+* [code/templates - module templates directory](code/templates)
+* [code/files - module files directory](code/files)
+* [code/lib module libs directory](code/lib)
+* [data/ - module yaml data directory](data/)
+* [ci/ - centrally maintained files for continuous integration directory](ci/)
+
+* [CERN Configuration Guide](https://configdocs.web.cern.ch/configdocs/)
+* [CERN modulesync configuration](https://gitlab.cern.ch/ai/it-puppet-modulesync-configs)
+* [CERN modulesync changelog](https://gitlab.cern.ch/ai/it-puppet-modulesync-configs/blob/master/README.md)
+
+* http://cern.ch
 
 
-## Description
+This file is maintained with modulesync.
 
 
-The gfal2 puppet module enables the installation and configuration of the gfal2 library + its plugins and the gfal2-util client.
-
-
-## Installation
-
-
-The puppet-gfal2 module can be installed from puppetforge via
-
-```
-puppet module install dmc-gfal2
-```
-
-the module doesn't configure the repositories for the installation.
-Gfal2 in RedHat systems is available in EPEL.
-
-## Usage
-
-Just including the module in your manifest is enough
-
-```
-include gfal2
-
-```
-
-and by default gfal2 and the srm, http , gsiftp plugins will be installed and configured.
-
-Check the test/init.pp manifest to see how to enable other plugins
-
-detailed instructions on how to configure the different plugins will follow
 
