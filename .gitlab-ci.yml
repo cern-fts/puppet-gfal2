@@ -20,7 +20,7 @@ cc7-puppet-ci:
     - docker-image-build
   only:
     - branches@ai/it-puppet-module-ci_images
-  script: ""
+  script: "echo"
   variables:
     CONTEXT_DIR: .
     DOCKER_FILE: ci/Dockerfile
@@ -31,17 +31,6 @@ cc7-puppet-ci:
 before_script:
   - '[ -n "${AI_CI_SSH_KEY}" ] && eval $(ssh-agent -s)'
   - '[ -n "${AI_CI_SSH_KEY}" ] && ssh-add <(echo "$AI_CI_SSH_KEY")'
-
-puppet3:
-  stage: tests
-  tags:
-   - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-master
-  script:
-    - cd code
-    - rm -f ../ci/Gemfile.lock
-    - BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 3.0' bundle install --local --without system_tests development
-    - LANG=en_US.UTF-8 BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 3.0' bundle exec rake --rakefile ../ci/Rakefile test
 
 puppet4:
   stage: tests
@@ -62,8 +51,8 @@ puppet4_latest:
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
-    - BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.0' bundle install --local --without system_tests development
-    - LANG=en_US.UTF-8 BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.0' bundle exec rake --rakefile ../ci/Rakefile test 
+    - BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.0' scl enable rh-ruby22 'bundle install --local --without system_tests development'
+    - LANG=en_US.UTF-8 BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.0' scl enable rh-ruby22 'bundle exec rake --rakefile ../ci/Rakefile test'
   allow_failure: true
 
 yaml-validate:
