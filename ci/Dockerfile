@@ -12,7 +12,8 @@ RUN mkdir -p ~/.ssh && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh
 #
 
 RUN yum clean all && yum -y update && \
-     yum -y install rubygem-bundler git ruby-devel gcc-c++ make augeas-devel openssh-clients git libxslt-devel rubygem-nokogiri openldap-devel unzip  && \
+     yum -y install centos-release-scl \
+     yum -y install rh-ruby22-rubygem-rake rh-ruby22-rubygem-bundler rh-ruby22-ruby-devel rubygem-bundler git ruby-devel gcc-c++ make augeas-devel openssh-clients git libxslt-devel rubygem-nokogiri openldap-devel unzip  && \
      yum install --nogpgcheck -y http://linuxsoft.cern.ch/internal/repos/ai7-stable/x86_64/os/Packages/rubygem-yaml-lint-0.0.4-2.ai7.noarch.rpm && \
      yum clean all
 
@@ -24,7 +25,7 @@ RUN cd /it-puppet-module-gfal2/code && \
   rm -f ../ci/Gemfile.lock; \
   BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.8.0' bundle install --full-index && \
   rm -f ../ci/Gemfile.lock; \
-  BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.0' bundle install --full-index ; \
+  BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.0' scl enable rh-ruby22 'bundle install --full-index' ; \
   rm -f ../ci/Gemfile.lock
 
 
