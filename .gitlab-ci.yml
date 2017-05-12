@@ -2,7 +2,6 @@
 
 # For reference the following ENV are uses in this file.
 # CI_REGISTRY_IMAGE, e.g. gitlab-registry.cern.ch/ai/it-puppet-module-ci_images
-# CI_BUILD_REF_NAME, e.g. qa , branch name.
 # AI_CI_SSH_KEY, contains a private key for fetching deps.
 
 stages:
@@ -25,7 +24,7 @@ cc7-puppet-ci:
     CONTEXT_DIR: .
     DOCKER_FILE: ci/Dockerfile
     FROM:    gitlab-registry.cern.ch/linuxsupport/cc7-base
-    TO:      ${CI_REGISTRY_IMAGE}:cc7-puppet-ci-${CI_BUILD_REF_NAME}
+    TO:      ${CI_REGISTRY_IMAGE}:cc7-puppet-ci-0.2.0
 
 
 before_script:
@@ -36,7 +35,7 @@ puppet4:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-master
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.2.0
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
@@ -47,7 +46,7 @@ puppet4_latest:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-master
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.2.0
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
@@ -59,7 +58,7 @@ yaml-validate:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-master
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.2.0
   script:
     - if [ -d data ] ; then yaml-lint data ; else true; fi
     - if [ -f .sync.yml ] ; then yaml-lint .sync.yml ; else true; fi
