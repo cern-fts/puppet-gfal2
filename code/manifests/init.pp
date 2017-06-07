@@ -14,8 +14,8 @@ class gfal2 (
 
   include gfal2::core
   include gfal2::params
-  
-  
+
+
   if $enable_http or $enable_all{
     include gfal2::plugins::http::config
   }
@@ -23,7 +23,7 @@ class gfal2 (
   if $enable_gsiftp  or $enable_all {
     include gfal2::plugins::gsiftp::config
   }
-  
+
   if $enable_srm  or $enable_all {
     include gfal2::plugins::srm::config
   }
@@ -35,10 +35,10 @@ class gfal2 (
   if $enable_rfio or $enable_all {
     include gfal2::plugins::rfio::config
   }
-  
+
   if $enable_dcap or $enable_all {
     include gfal2::plugins::dcap::config
-  } 
+  }
 
   if $enable_file or $enable_all {
     include gfal2::plugins::file::config
@@ -51,5 +51,5 @@ class gfal2 (
   if $enable_mock  or $enable_all {
     include gfal2::plugins::mock::config
   }
-  
+
 }
