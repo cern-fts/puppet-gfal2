@@ -21,11 +21,12 @@ COPY . /it-puppet-module-gfal2
 
 RUN cd /it-puppet-module-gfal2/code && \
   rm -f ../ci/Gemfile.lock; \
-  BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 3.0' bundle install --full-index && \
-  rm -f ../ci/Gemfile.lock; \
   BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.9.0' scl enable rh-ruby22 'bundle install --full-index' && \
   rm -f ../ci/Gemfile.lock; \
-  BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.0' scl enable rh-ruby22 'bundle install --full-index' ; \
-  rm -f ../ci/Gemfile.lock
+  BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.0' scl enable rh-ruby22 'bundle install --full-index' && \
+  rm -f ../ci/Gemfile.lock; \
+  BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 5.0' scl enable rh-ruby22 'bundle install --full-index' ; \
+  rm -f ../ci/Gemfile.lock ; \
+  ln -s /opt/rh/rh-ruby22/root/usr/local/bin/puppet /opt/rh/rh-ruby22/root/usr/bin/puppet
 
 
