@@ -24,7 +24,7 @@ cc7-puppet-ci:
     CONTEXT_DIR: .
     DOCKER_FILE: ci/Dockerfile
     FROM:    gitlab-registry.cern.ch/linuxsupport/cc7-base
-    TO:      ${CI_REGISTRY_IMAGE}:cc7-puppet-ci-0.4.3
+    TO:      ${CI_REGISTRY_IMAGE}:cc7-puppet-ci-0.4.4
 
 
 before_script:
@@ -35,7 +35,7 @@ puppet4:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.3
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.4
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
@@ -46,7 +46,7 @@ puppet4_latest:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.3
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.4
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
@@ -57,7 +57,7 @@ puppet5_latest:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.3
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.4
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
@@ -70,7 +70,7 @@ yaml-validate:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.3
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.4
   script:
     - if [ -d data ] ; then yaml-lint data ; else true; fi
     - if [ -d data ] ; then ruby -ryaml -rfind -e 'Find.find("data").grep(/.*\.yaml/).each do |f| abort "Hiera file \"#{f}\" must contain a hash if it exists" unless YAML.load_file(f).class == Hash end' ; fi
