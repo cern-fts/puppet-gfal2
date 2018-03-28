@@ -1,5 +1,6 @@
 class gfal2::plugins::http::params {
   $enable_remote_copy = hiera('gfal2::plugins::http::params::enable_remote_copy', true)
+  $enable_stream_copy = hiera('gfal2::plugins::http::params::enable_stream_copy', true)
   $insecure           = hiera('gfal2::plugins::http::params::insecure', false)
   $log_level          = hiera('gfal2::plugins::http::params::log_level', 0)
   $keep_alive         = hiera('gfal2::plugins::http::params::keep_alive', true)
