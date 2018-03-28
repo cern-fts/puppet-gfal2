@@ -7,7 +7,7 @@
 #
 # See:
 # * http://rspec-puppet.com/tutorial/
-# * http://rspec-puppet.com/matchers/
+# * http://rspec-puppet.com/documentation/
 # * https://github.com/mcanevet/rspec-puppet-facts
 # for learning RSpec Puppet.
 
