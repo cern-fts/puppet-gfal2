@@ -8,5 +8,7 @@ class gfal2::plugins::http::params {
   $s3_access_key      = hiera('gfal2::plugins::http::params::s3_access_key', undef)
   $s3_token           = hiera('gfal2::plugins::http::params::s3_token', undef)
   $s3_region          = hiera('gfal2::plugins::http::params::s3_region', undef)
+  $gcloud_json_auth_file = hiera('gfal2::plugins::http::params::gcloud_json_auth_file', undef)
+  $gcloud_json_auth_path = hiera('gfal2::plugins::http::params::gcloud_json_auth_path', undef)
 }
 

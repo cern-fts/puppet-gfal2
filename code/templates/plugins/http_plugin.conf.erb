@@ -30,3 +30,16 @@ TOKEN=<%= @s3_token %>
 # AWS Region
 REGION=<%= @s3_region %>
 
+<% if @gcloud_json_auth_file  or @gcloud_json_auth_path -%>
+#gcloud related options
+[GCLOUD]
+
+<% if @gcloud_json_auth_file -%>
+# Path to the google JSON file path
+JSON_AUTH_FILE=<%= @gcloud_json_auth_file %>
+<% end -%>
+<% if @gcloud_json_auth_path -%>
+### google auth file as a string
+JSON_AUTH_STRING=<%= @gcloud_json_auth_path %>
+<% end -%>
+<% end -%>
