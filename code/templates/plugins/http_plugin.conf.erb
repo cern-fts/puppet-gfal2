@@ -5,6 +5,13 @@ ENABLE_REMOTE_COPY=<%= @enable_remote_copy %>
 ## Enable streamed copies (data passes via the client)
 ENABLE_STREAM_COPY=<%= @enable_stream_copy %>
 
+#Enable fallback copies: in case of TPC we start first with DEFAULT_COPY_MODE
+#and we fallback in case of an error
+ENABLE_FALLBACK_TPC_COPY=<%= @enable_fallback_tpc_copy %>
+
+# Default mode for http copy
+DEFAULT_COPY_MODE=<%= @default_copy_mode %>
+
 # Enable or disable the SSL CA check
 INSECURE=<%= @insecure %>
 
