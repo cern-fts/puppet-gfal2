@@ -10,3 +10,8 @@ NAMESPACE_TIMEOUT=<%= @namespace_timeout %>
 # Checksum timeout in seconds.
 # Other protocol specific may override this if set (i.e. GRIDFTP PLUGIN:CHECKSUM_TIMEOUT)
 CHECKSUM_TIMEOUT=<%= @checksum_timeout %>
+
+[FTP]
+#default ftp configuration
+USER=<%= @ftp_user %>
+PASSWORD=<%= @ftp_pass %>
