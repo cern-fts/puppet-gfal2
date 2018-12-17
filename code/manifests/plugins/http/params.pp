@@ -1,7 +1,7 @@
 class gfal2::plugins::http::params {
   $enable_remote_copy = hiera('gfal2::plugins::http::params::enable_remote_copy', true)
   $enable_stream_copy = hiera('gfal2::plugins::http::params::enable_stream_copy', true)
-  $enable_fallback_tpc__copy = hiera('gfal2::plugins::http::params::enable_fallback_tpc_copy', true)
+  $enable_fallback_tpc_copy = hiera('gfal2::plugins::http::params::enable_fallback_tpc_copy', true)
   $default_copy_mode  = hiera('gfal2::plugins::http::params::defaut_copy_mode', '3rd pull') 
   $insecure           = hiera('gfal2::plugins::http::params::insecure', false)
   $log_level          = hiera('gfal2::plugins::http::params::log_level', 0)
