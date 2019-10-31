@@ -12,44 +12,44 @@ class gfal2 (
   $install_gfal2_util = $gfal2::params::install_gfal2_utils,
 ) inherits gfal2::params{
 
-  include gfal2::core
-  include gfal2::params
+  include ::gfal2::core
+  include ::gfal2::params
 
 
   if $enable_http or $enable_all{
-    include gfal2::plugins::http::config
+    include ::gfal2::plugins::http::config
   }
 
   if $enable_gsiftp  or $enable_all {
-    include gfal2::plugins::gsiftp::config
+    include ::gfal2::plugins::gsiftp::config
   }
 
   if $enable_srm  or $enable_all {
-    include gfal2::plugins::srm::config
+    include ::gfal2::plugins::srm::config
   }
 
   if $enable_xrootd  or $enable_all {
-    include gfal2::plugins::xrootd::config
+    include ::gfal2::plugins::xrootd::config
   }
 
   if $enable_rfio or $enable_all {
-    include gfal2::plugins::rfio::config
+    include ::gfal2::plugins::rfio::config
   }
 
   if $enable_dcap or $enable_all {
-    include gfal2::plugins::dcap::config
+    include ::gfal2::plugins::dcap::config
   }
 
   if $enable_file or $enable_all {
-    include gfal2::plugins::file::config
+    include ::gfal2::plugins::file::config
   }
 
   if $enable_lfc or $enable_all {
-    include gfal2::plugins::lfc::config
+    include ::gfal2::plugins::lfc::config
   }
 
   if $enable_mock  or $enable_all {
-    include gfal2::plugins::mock::config
+    include ::gfal2::plugins::mock::config
   }
 
 }

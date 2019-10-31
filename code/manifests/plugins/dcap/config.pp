@@ -6,8 +6,8 @@ class gfal2::plugins::dcap::config(
   }
   #conf
   file{'/etc/gfal2.d/dcap_plugin.conf':
-      owner   => "root",
-      group   => "root",
+      owner   => 'root',
+      group   => 'root',
       mode    => '0644',
       content => template('gfal2/plugins/dcap_plugin.conf.erb'),
       require => Package['gfal2-plugin-dcap'],

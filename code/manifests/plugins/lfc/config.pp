@@ -6,8 +6,8 @@ class gfal2::plugins::lfc::config(
   }
   #conf
   file{'/etc/gfal2.d/lfc_plugin.conf':
-      owner   => "root",
-      group   => "root",
+      owner   => 'root',
+      group   => 'root',
       mode    => '0644',
       content => template('gfal2/plugins/lfc_plugin.conf.erb'),
       require => Package['gfal2-plugin-lfc'],

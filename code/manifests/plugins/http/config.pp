@@ -6,8 +6,8 @@ class gfal2::plugins::http::config(
   }
   #conf
   file{'/etc/gfal2.d/http_plugin.conf':
-      owner   => "root",
-      group   => "root",
+      owner   => 'root',
+      group   => 'root',
       mode    => '0644',
       content => template('gfal2/plugins/http_plugin.conf.erb'),
       require => Package['gfal2-plugin-http'],
