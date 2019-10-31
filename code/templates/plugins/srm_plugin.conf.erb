@@ -26,3 +26,10 @@ TURL_3RD_PARTY_PROTOCOLS=<%= @turl_3rd_party_protocols %>
 # enable or disable the srm session re-use
 # no parameter : disabled
 KEEP_ALIVE=<%= @keep_alive %>
+
+# enable or disable the check for source file locality 
+# # in SRM copy. If enabled and the locality is NEARLINE 
+# # the SRM copy is not executed
+# # no parameter : disabled
+COPY_FAIL_NEARLINE=<%= @copy_fail_nearline %>
+

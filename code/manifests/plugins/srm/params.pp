@@ -6,4 +6,5 @@ class gfal2::plugins::srm::params {
   $turl_protocols           = hiera('gfal2::plugins::srm::params::turl_protocols','gsiftp;rfio;gsidcap;dcap;kdcap')
   $turl_3rd_party_protocols = hiera('gfal2::plugins::srm::params::turl_3rd_party_protocols', 'gsiftp')
   $keep_alive               = hiera('gfal2::plugins::srm::params::keep_alive',true)
+  $copy_fail_nearline       = hiera('gfal2::plugins::srm::params::copy_fail_nearline',false)
 }
