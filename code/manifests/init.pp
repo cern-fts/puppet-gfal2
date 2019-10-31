@@ -9,7 +9,6 @@ class gfal2 (
   $enable_file   = $gfal2::params::enable_file,
   $enable_lfc    = $gfal2::params::enable_lfc,
   $enable_mock   = $gfal2::params::enable_mock,
-  $install_gfal2_util = $gfal2::params::install_gfal2_utils,
 ) inherits gfal2::params{
 
   include ::gfal2::core

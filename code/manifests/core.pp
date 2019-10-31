@@ -1,4 +1,5 @@
 class gfal2::core(
+  $install_gfal2_util = $gfal2::params::install_gfal2_util
 ) inherits gfal2::params {
   #install gfal2-core
   package{'gfal2':
