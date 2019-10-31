@@ -24,55 +24,69 @@ cc7-puppet-ci:
     CONTEXT_DIR: .
     DOCKER_FILE: ci/Dockerfile
     FROM:    gitlab-registry.cern.ch/linuxsupport/cc7-base
-    TO:      ${CI_REGISTRY_IMAGE}:cc7-puppet-ci-0.4.4
+    TO:      ${CI_REGISTRY_IMAGE}:cc7-puppet-ci-1.2.1
 
 
 before_script:
   - '[ -n "${AI_CI_SSH_KEY}" ] && eval $(ssh-agent -s)'
   - '[ -n "${AI_CI_SSH_KEY}" ] && ssh-add <(echo "$AI_CI_SSH_KEY")'
 
-puppet4:
+puppet5:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.4
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.2.1
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
-    - BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.9.0' scl enable rh-ruby22 'bundle install --local --without system_tests development'
-    - LANG=en_US.UTF-8 BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.9.0' scl enable rh-ruby22 'bundle exec rake --rakefile ../ci/Rakefile test'
-
-puppet4_latest:
-  stage: tests
-  tags:
-   - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.4
-  script:
-    - cd code
-    - rm -f ../ci/Gemfile.lock
-    - BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.0' scl enable rh-ruby22 'bundle install --local --without system_tests development'
-    - LANG=en_US.UTF-8 BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 4.0' scl enable rh-ruby22 'bundle exec rake --rakefile ../ci/Rakefile test'
+    - BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 5.5.8' scl enable rh-ruby24 'bundle install --local --without system_tests development'
+    - LANG=en_US.UTF-8 BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 5.5.8' scl enable rh-ruby24 'bundle exec rake --rakefile ../ci/Rakefile test'
 
 puppet5_latest:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.4
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.2.1
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
-    - BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 5.0' scl enable rh-ruby22 'bundle install --local --without system_tests development'
-    - LANG=en_US.UTF-8 BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 5.0' scl enable rh-ruby22 'bundle exec rake --rakefile ../ci/Rakefile test'
+    - BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 5.0' scl enable rh-ruby24 'bundle install --local --without system_tests development'
+    - LANG=en_US.UTF-8 BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 5.0' scl enable rh-ruby24 'bundle exec rake --rakefile ../ci/Rakefile test'
+
+puppet6_latest:
+  stage: tests
+  tags:
+   - docker
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.2.1
+  script:
+    - cd code
+    - rm -f ../ci/Gemfile.lock
+    - BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 6.0' scl enable rh-ruby25 'bundle install --local --without system_tests development'
+    - LANG=en_US.UTF-8 BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 6.0' scl enable rh-ruby25 'bundle exec rake --rakefile ../ci/Rakefile test'
   allow_failure: true
 
+
+rubocop:
+  stage: tests
+  tags:
+   - docker
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.2.1
+  script:
+    - cd code
+    - rm -f ../ci/Gemfile.lock
+    - /usr/bin/test -f .rubocop.yml || cp -p ../ci/boilerplate/.rubocop.yml .rubocop.yml
+    - BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 5.0' scl enable rh-ruby24 'bundle install --local --without system_tests development'
+    - LANG=en_US.UTF-8 BUNDLE_GEMFILE=../ci/Gemfile PUPPET_VERSION='~> 5.0' scl enable rh-ruby24 'bundle exec rake --rakefile ../ci/Rakefile rubocop'
+  allow_failure: true
 
 yaml-validate:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-0.4.4
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.2.1
   script:
+    - if [ -d data ] && [ -d code/data ] ; then echo "Directory data and code/data cannot both exist." ; /bin/false ; else true; fi
     - if [ -d data ] ; then yaml-lint data ; else true; fi
-    - if [ -d data ] ; then ruby -ryaml -rfind -e 'Find.find("data").grep(/.*\.yaml/).each do |f| abort "Hiera file \"#{f}\" must contain a hash if it exists" unless YAML.load_file(f).class == Hash end' ; fi
+    - if [ -d data ] ; then ruby ci/extra-yaml-checks.rb ; fi
     - if [ -f .sync.yml ] ; then yaml-lint .sync.yml ; else true; fi
 

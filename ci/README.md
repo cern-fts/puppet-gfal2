@@ -28,3 +28,4 @@ be better maintained.
 * [boilerplate/spec/hiera.yaml - hiera definition to use inside tests](boilerplate/spec/hiera.yaml).
 * [boilerplate/.fixtures.yml - list and locations of dependencies needed by test dependencies](boilerplate/.fixtures.yml)
 * [boilerplate/.rspec - puppet rspec options](boilerplate/.rspec)
+* [boilerplate/.rubocop - rubocop configuration](boilerplate/.rubocop)
