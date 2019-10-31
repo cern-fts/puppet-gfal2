@@ -12,8 +12,9 @@ code/*.iml
 code/.*.sw
 ci/.bundle
 ci/Gemfile.lock
+ci/vendor
 .__afs*
-*.swp
+*.sw?
 .project
 .pydevproject
 .pyproject

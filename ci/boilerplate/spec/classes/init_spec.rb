@@ -11,7 +11,9 @@
 
 require 'spec_helper'
 
+
 describe 'gfal2' do
+
   let(:hiera_config) { 'spec/hiera.yaml' }
   on_supported_os.each do |os, facts|
     context "on #{os}" do
