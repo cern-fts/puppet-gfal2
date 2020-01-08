@@ -24,10 +24,11 @@ cc7-puppet-ci:
     CONTEXT_DIR: .
     DOCKER_FILE: ci/Dockerfile
     FROM:    gitlab-registry.cern.ch/linuxsupport/cc7-base
-    TO:      ${CI_REGISTRY_IMAGE}:cc7-puppet-ci-1.2.1
+    TO:      ${CI_REGISTRY_IMAGE}:cc7-puppet-ci-1.3.0
 
 
 before_script:
+  - yum install -y openssh-clients
   - '[ -n "${AI_CI_SSH_KEY}" ] && eval $(ssh-agent -s)'
   - '[ -n "${AI_CI_SSH_KEY}" ] && ssh-add <(echo "$AI_CI_SSH_KEY")'
 
@@ -35,7 +36,7 @@ puppet5:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.2.1
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.3.0
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
@@ -46,7 +47,7 @@ puppet5_latest:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.2.1
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.3.0
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
@@ -57,7 +58,7 @@ puppet6_latest:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.2.1
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.3.0
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
@@ -70,7 +71,7 @@ rubocop:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.2.1
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.3.0
   script:
     - cd code
     - rm -f ../ci/Gemfile.lock
@@ -83,7 +84,7 @@ yaml-validate:
   stage: tests
   tags:
    - docker
-  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.2.1
+  image: gitlab-registry.cern.ch/ai/it-puppet-module-ci_images:cc7-puppet-ci-1.3.0
   script:
     - if [ -d data ] && [ -d code/data ] ; then echo "Directory data and code/data cannot both exist." ; /bin/false ; else true; fi
     - if [ -d data ] ; then yaml-lint data ; else true; fi

@@ -2,7 +2,8 @@
 code/pkg/
 code/Gemfile.lock
 code/vendor/
-code/spec/fixtures/
+code/spec/fixtures/manifests/
+code/spec/fixtures/modules/
 code/.vagrant/
 code/.bundle/
 code/coverage/
